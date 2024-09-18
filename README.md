@@ -1,85 +1,130 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+Here's a draft for the `README.md` file that summarizes what was done and what was not included in the assignment:
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+---
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+# Newsletter App
 
-## Description
+## Overview
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This project is a backend application for a Newsletter Management System. It includes features for managing users, organizations, subscribers, lists, campaigns, GPG encryption, RSS feeds, and automation. Built with NestJS and TypeORM, it uses PostgreSQL as the database.
 
-## Project setup
+## Features Implemented
 
-```bash
-$ npm install
-```
+1. **User Management**
 
-## Compile and run the project
+   - **POST /api/users/register**: Register a new user.
+   - **POST /api/users/login**: User login and JWT generation.
+   - **GET /api/users/:id**: Get user details.
 
-```bash
-# development
-$ npm run start
+2. **Organization Management**
 
-# watch mode
-$ npm run start:dev
+   - **POST /api/organizations**: Create a new organization.
+   - **GET /api/organizations**: List all organizations (admin only).
 
-# production mode
-$ npm run start:prod
-```
+3. **Subscriber Management**
 
-## Run tests
+   - **POST /api/subscribers**: Add a new subscriber.
+   - **GET /api/subscribers**: List subscribers with pagination and filtering.
+   - **PUT /api/subscribers/:id**: Update subscriber information.
 
-```bash
-# unit tests
-$ npm run test
+4. **List Management**
 
-# e2e tests
-$ npm run test:e2e
+   - **POST /api/lists**: Create a new list.
+   - **GET /api/lists**: List all lists for the organization.
+   - **PUT /api/lists/:id**: Update list details.
 
-# test coverage
-$ npm run test:cov
-```
+5. **Campaign Management**
 
-## Resources
+   - **POST /api/campaigns**: Create a new campaign.
+   - **GET /api/campaigns**: List all campaigns for the organization.
+   - **POST /api/campaigns/:id/send**: Send a campaign.
 
-Check out a few resources that may come in handy when working with NestJS:
+6. **GPG Encryption**
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+   - **POST /api/gpg/upload**: Upload GPG public key for a subscriber.
 
-## Support
+7. **RSS Feeds**
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+   - **Automatic fetching and campaign generation**: Parses RSS feeds from organizations and creates campaigns based on feed items.
 
-## Stay in touch
+8. **Automation (Optional)**
+   - **Automation Triggers**: Not fully implemented due to lack of SMTP and RSS URL setup.
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## Setup and Installation
 
-## License
+1. **Clone the repository:**
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+   ```bash
+   git clone https://github.com/Chxcodx/newsletter-app.git
+   cd newsletter-app
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables:**
+   Create a `.env` file in the root directory and add the following:
+
+   ```env
+   DB_HOST=localhost
+   DB_PORT=5432
+   DB_USERNAME=postgres
+   DB_PASSWORD=123
+   DB_DATABASE=newsletter_app
+   JWT_SECRET=your_jwt_secret
+   ```
+
+4. **Run the application:**
+
+   ```bash
+   npm run start
+   ```
+
+5. **Run database migrations:**
+   ```bash
+   npm run typeorm:migrate
+   ```
+
+## Testing
+
+To test the APIs, use tools like Postman or cURL to interact with the endpoints. Ensure that your PostgreSQL database is running and the environment variables are correctly set up.
+
+### Example API Calls
+
+- **Register a new user:**
+
+  ```http
+  POST http://localhost:3000/api/users/register
+  ```
+
+  Request body:
+
+  ```json
+  {
+    "email": "testuser@test.com",
+    "password": "password123",
+    "role": "User",
+    "organization_id": "valid-organization-id"
+  }
+  ```
+
+- **List subscribers:**
+  ```http
+  GET http://localhost:3000/api/subscribers
+  ```
+
+## Issues and Known Limitations
+
+1. **SMTP Integration:** Automation features relying on SMTP are not implemented due to the lack of SMTP configuration.
+2. **RSS Feed URL Configuration:** Requires valid RSS feed URLs to test RSS-related features.
+
+## Future Improvements
+
+1. **SMTP Integration:** Set up and configure SMTP for email sending capabilities.
+2. **Enhanced Error Handling:** Implement more detailed error handling and logging mechanisms.
+3. **Automated Testing:** Add unit and integration tests for better test coverage.
+
+---
